@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="34px" viewBox="0 0 15 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-facebook@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-Home" transform="translate(-196.000000, -3383.000000)" fill="#FFFFFF">
+            <g id="Footer" transform="translate(176.000000, 3302.000000)">
+                <g id="First-Col">
+                    <g id="Social">
+                        <g id="Social-Icons" transform="translate(20.000000, 79.828553)">
+                            <path d="M14.7836164,12.551565 L9.87032823,12.551565 L9.87032823,9.17355378 C9.80532805,8.77730184 9.92085892,8.37273881 10.1853075,8.0705674 C10.4497561,7.76839598 10.8354336,7.60025473 11.2368051,7.612153 L14.7032354,7.612153 L14.7032354,2.03572164 L9.92860445,2.01763592 C8.12070238,1.92526504 6.36231769,2.6254206 5.112735,3.93522415 C3.8631523,5.2450277 3.24647329,7.03439673 3.42377262,8.83595362 L3.42377262,12.551565 L0.359247278,12.551565 L0.359247278,18.2947869 L3.42377262,18.2947869 L3.42377262,34.5538522 L9.87032823,34.5538522 L9.87032823,18.298806 L14.2189399,18.298806 L14.7836164,12.551565 Z" id="icon-facebook"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

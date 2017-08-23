@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>go-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-Home" transform="translate(-805.000000, -3384.000000)">
+            <g id="Footer" transform="translate(176.000000, 3302.000000)">
+                <g id="Last-Col" transform="translate(402.000000, 0.000000)">
+                    <g id="Newsletter" transform="translate(1.000000, 0.000000)">
+                        <g id="Input" transform="translate(0.000000, 82.000000)">
+                            <g id="go-icon" transform="translate(226.000000, 0.000000)">
+                                <circle id="button-bg" fill="#FFFFFF" cx="22" cy="22" r="22"></circle>
+                                <path d="M22.848,31.104 C22.3359974,31.3920014 21.7920029,31.536 21.216,31.536 C20.3839958,31.536 19.6480032,31.2560028 19.008,30.696 C18.3679968,30.1359972 18.048,29.4240043 18.048,28.56 C18.048,27.9839971 18.1759987,27.4400026 18.432,26.928 L20.784,21.792 L18.432,16.656 C18.1439986,16.0159968 18,15.4560024 18,14.976 C18,14.1119957 18.3119969,13.4000028 18.936,12.84 C19.5600031,12.2799972 20.3039957,12 21.168,12 C21.7440029,12 22.2959974,12.1519985 22.824,12.456 C23.3520026,12.7600015 23.7919982,13.1999971 24.144,13.776 L27.36,19.296 C27.9040027,20.1920045 28.176,21.0239962 28.176,21.792 C28.176,22.5600038 27.9040027,23.3919955 27.36,24.288 L24.144,29.76 C23.7919982,30.368003 23.3600026,30.8159986 22.848,31.104 Z" id="›" fill="#6B35B6"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
