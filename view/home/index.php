@@ -17,63 +17,32 @@
       </h1>
     </header>
     <div class="events">
+      <?php foreach( $events as $event ): ?>
       <article class="event">
         <header class="event-header">
-          <h1 class="hide">Twijfelmooi</h1>
+          <h1 class="hide"><?php echo $event['title'];?></h1>
         </header>
         <div class="event-info">
           <a href="pages/detail.html">
             <div class="event-age">
-              <p class="event-age-item">4-10</p>
+              <p class="event-age-item"><?php echo $event['start_age'];?>-<?php echo $event['end_age'];?></p>
               <p class="event-age-item event-age-item-small">jaar</p>
             </div>
             <div class="event-descr-item">
-                <p class="event-date">27 december 2017</p>
-                <p class="event-tag">kindertheater, kleutertheater</p>
+                <p class="event-date"><?php echo date("d-m-Y", strtotime($event['start'])); ?></p>
+                <p class="event-tag">
+                  <?php foreach($event['tags'] as $tag):
+                        echo $tag['tag'].' ';
+                      endforeach;
+                     ?>
+                </p>
             </div>
-            <p class="event-title s-button"><a href="#" class="arrow"><span>Twijfelmooi</span></a></p>
-            <p class="event-performer">Theater I-Luna</p>
+            <p class="event-title s-button"><a href="#" class="arrow"><span><?php echo $event['title'];?></span></a></p>
+            <p class="event-performer"><?php echo $event['performer']; ?></p>
           </a>
         </div> <!-- end event-info-->
       </article>
-      <article class="event">
-        <header class="event-header">
-          <h1 class="hide">Twijfelmooi</h1>
-        </header>
-        <div class="event-info">
-          <a href="pages/detail.html">
-            <div class="event-age">
-              <p class="event-age-item">4-10</p>
-              <p class="event-age-item event-age-item-small">jaar</p>
-            </div>
-            <div class="event-descr-item">
-                <p class="event-date">27 december 2017</p>
-                <p class="event-tag">kindertheater, kleutertheater</p>
-            </div>
-            <p class="event-title s-button"><a href="" class="arrow"><span>Twijfelmooi</span></a></p>
-            <p class="event-performer">Theater I-Luna</p>
-          </a>
-        </div> <!-- end event-info-->
-      </article>
-      <article class="event">
-        <header class="event-header">
-          <h1 class="hide">Twijfelmooi</h1>
-        </header>
-        <div class="event-info">
-          <a href="pages/detail.html">
-            <div class="event-age">
-              <p class="event-age-item">4-10</p>
-              <p class="event-age-item event-age-item-small">jaar</p>
-            </div>
-            <div class="event-descr-item">
-                <p class="event-date">27 december 2017</p>
-                <p class="event-tag">kindertheater, kleutertheater</p>
-            </div>
-            <p class="event-title s-button"><a href="" class="arrow"><span>Twijfelmooi</span></a></p>
-            <p class="event-performer">Theater I-Luna</p>
-          </a>
-        </div> <!-- end event-info-->
-      </article>
+    <?php endforeach; ?>
     </div> <!-- end events-->
 </section>
 <section class="section about">
@@ -125,16 +94,19 @@
       <h1 class="section-header-title-small blog-header-title">Blog</h1>
   </header>
   <div class="container">
+    <?php foreach ($blogs as $blog): ?>
     <article>
       <div>
-        <img src="" alt="">
+        <img src="assets/img/<?php echo $blog['blog_image']; ?>" alt="<?php echo $blog['blog_image']; ?>">
       </div>
       <div>
-        <h1>Voorstelling toverdrank</h1>
-        <h2>30 december 2016</h2>
-        <p>Vandaag onze laatste spekkenvoorstelling van dit jaar: Joris en de geheimzinnige toverdrank van Theater De Kreet. Een bewerking naar het gelijknamige boek van Roald Dahl die dit jaar honderd zou zijn geworden en duidelijk nog niets van zijn aantrekkingskracht…</p>
+        <h1><?php echo $blog['blog_title']; ?></h1>
+        <h2><?php echo $blog['blog_date']; ?></h2>
+        <p><?php echo substr($blog['blog_text'], 0, 240).'...'; ?></p>
         <a class="s-button" href="#"><span>Lees meer</span></a>
       </div>
     </article>
+    <?php endforeach; ?>
+
   </div>
 </section>

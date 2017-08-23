@@ -34,7 +34,7 @@
       </div>
       <div class="nav-list-expanded">
         <li class="mobile-nav-item"><a href="#" class="nav-link">Home</a></li>
-        <li class="mobile-nav-item"><a href="#" class="nav-link">Programma</a></li>
+        <li class="mobile-nav-item"><a href="index.php?page=events" class="nav-link">Programma</a></li>
         <li class="mobile-nav-item"><a href="#" class="nav-link">Over ons</a></li>
         <li class="mobile-nav-item"><a href="#" class="nav-link">Praktisch</a></li>
         <li class="mobile-nav-item"><a href="#" class="nav-link">Contact</a></li>
@@ -47,7 +47,7 @@
         <li class="nav-item-logo home"><a href="index.html" class="logo"><span class="nav-link">home</span></a></li>
       </div>
       <div class="nav-list-menu">
-        <li class="nav-item"><a href="#" class="nav-link">Programma</a></li>
+        <li class="nav-item"><a href="index.php?page=events" class="nav-link">Programma</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Over ons</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Praktisch</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>

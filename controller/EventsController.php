@@ -3,6 +3,7 @@
 require_once WWW_ROOT . 'controller' . DS . 'Controller.php';
 require_once WWW_ROOT . 'dao' . DS . 'EventDAO.php';
 
+
 class EventsController extends Controller {
 
   private $eventDAO;
@@ -100,7 +101,7 @@ class EventsController extends Controller {
     );
 
     }
-    
+
 
     }
 
@@ -188,6 +189,43 @@ class EventsController extends Controller {
       }
 
       $this->set('events', $events);
+  }
+
+  public function detail() {
+
+    if (isset($_GET['id']) && !empty($_GET['id'])){
+
+      $events = $this->eventDAO->selectById($_GET['id']);
+
+      $conditions[] = array(
+        'field' => 'location_id',
+        'comparator' => '=',
+        'value' => $events['location_id']
+      );
+    }
+
+    $events = $this->eventDAO->search($conditions);
+
+    $eventFound;
+
+    foreach($events as $event) {
+      if($event['id'] == $_GET['id']){
+
+        $eventFound = $event;
+      }
+    }
+
+    if(!empty($eventFound)){
+
+      $this->set('events', $eventFound);
+
+    } else {
+      header('Location: index.php');
+      exit();
+    }
+
+
+
   }
 
 

@@ -126,15 +126,15 @@
   foreach($events as $event):?>
     <article>
       <header><h2><?php echo $event['title']; ?></h2></header>
-      <dl>
-        <dt>start</dt><dd><?php echo $event['start'];?></dd>
-        <dt>leeftijd</dt><dd><?php echo $event['start_age'];?> - <?php echo $event['end_age'];?> jaar</dd>
-        <dt>performer</dt><dd><?php echo $event['performer'];?></dd>
-        <dt>title</dt><dd><?php echo $event['title'];?></dd>
-        <dt>location</dt><dd><?php echo $event['location'];?></dd>
-        <dt>tags</dt><dd><ul><?php foreach($event['tags'] as $tag): ?><li><?php echo $tag['tag'];?></li><?php endforeach;?></ul></dd>
-        <dt>description</dt><dd><pre><?php echo $event['description'];?></pre></dd>
-      </dl>
+        <p>start</p><p><?php echo $event['start'];?></p>
+        <p>leeftijd</p><p><?php echo $event['start_age'];?> - <?php echo $event['end_age'];?> jaar</p>
+        <p>performer</p><p><?php echo $event['performer'];?></p>
+        <a href="index.php?page=detail&amp;id=<?php echo $event["id"]; ?>">
+        <p>title</p><p><?php echo $event['title'];?></p>
+        </a>
+        <p>location</p><p><?php echo $event['location'];?></p>
+        <p>tags</p><p><ul><?php foreach($event['tags'] as $tag): ?><li><?php echo $tag['tag'];?></li><?php endforeach;?></ul></p>
+        <p>description</p><p><pre><?php echo $event['description'];?></pre></p>
     </article>
   <?php endforeach; ?>
 
