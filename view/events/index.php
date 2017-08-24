@@ -12,7 +12,7 @@
   <header>
     <h1>Vind je voorstelling(en)</h1>
   </header>
-  <form class="" action="index.php" method="POST">
+  <form class="" action="index.php?page=events" method="POST">
     <div class="">
 
       <?php if(isset($_POST['startDate']) && isset($_POST['endDate'])): ?>
@@ -32,14 +32,15 @@
     <div class="">
       <?php if( isset($_POST['submit']) && (empty($_POST['startDate']) && empty($_POST['endDate']))):
 
-            elseif(isset($_POST['submit']) && (empty($_POST['startDate']) || empty($_POST['endDate']))):
-          echo 'Gelieve een begin en einddatum in te vullen.';
+            elseif(isset($_POST['submit']) && (empty($_POST['startDate']) || empty($_POST['endDate']))): ?>
+            <p><?php echo 'Gelieve een begin- en einddatum in te vullen.'; ?></p>
 
-         endif; ?>
+
+        <? endif; ?>
     </div>
 
     <div class="search">
-      <input type="text" id="search" name="query" placeholder="Zoek je voorstelling..." value="<?php if(isset($_POST['query'])) echo $_POST['query'];?>"></br>
+      <input type="text" id="search" name="query" placeholder="Zoek op artiest..." value="<?php if(isset($_POST['query'])) echo $_POST['query'];?>"></br>
       <!-- <?php echo $_POST['query']?> -->
     </div>
 
@@ -134,7 +135,7 @@
         </a>
         <p>location</p><p><?php echo $event['location'];?></p>
         <p>tags</p><p><ul><?php foreach($event['tags'] as $tag): ?><li><?php echo $tag['tag'];?></li><?php endforeach;?></ul></p>
-        <p>description</p><p><pre><?php echo $event['description'];?></pre></p>
+        <p>description</p><p><?php echo substr($event['description'], 0, 240).'...'; ?></p>
     </article>
   <?php endforeach; ?>
 

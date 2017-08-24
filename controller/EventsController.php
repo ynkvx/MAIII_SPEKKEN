@@ -83,10 +83,31 @@ class EventsController extends Controller {
     // );
 
     //example: events in december - januari
+     $startDate = "";
+     $endDate = "";
 
-    if (!empty($_POST['startDate']) && !empty($_POST['endDate']) && isset($_POST['startDate']) && isset($_POST['endDate']) ) {
+    if (!empty($_POST['startDate']) && !empty($_POST['endDate']) && isset($_POST['startDate'])
+    && isset($_POST['endDate']) ) {
       $startDate = $_POST['startDate']." 00:00:00";
       $endDate = $_POST['endDate']." 23:59:59";
+
+    }
+    elseif (empty($_POST['startDate']) && !empty($_POST['endDate']) && isset($_POST['endDate'])){
+
+      $startDate = date("Y-m-d")." 00:00:00";
+      $endDate = $_POST['endDate']." 23:59:59";
+      // $_POST['startDate'] = date("Y-m-d");
+    } elseif (!empty($_POST['startDate']) && empty($_POST['endDate']) && isset($_POST['startDate'])){
+
+      $endDate = "2100-12-31"." 23:59:59";
+      $startDate = $_POST['startDate']." 00:00:00";
+      // $_POST['endDate'] = "2100-12-31";
+
+    } else {
+      $startDate = date("Y-m-d")." 00:00:00";
+      $endDate = "2100-12-31"." 23:59:59";
+
+    }
 
     $conditions[] = array(
       'field' => 'start',
@@ -99,8 +120,6 @@ class EventsController extends Controller {
       'comparator' => '<',
       'value' => $endDate
     );
-
-    }
 
 
     }
@@ -193,6 +212,8 @@ class EventsController extends Controller {
 
   public function detail() {
 
+    $eventFound;
+
     if (isset($_GET['id']) && !empty($_GET['id'])){
 
       $events = $this->eventDAO->selectById($_GET['id']);
@@ -205,8 +226,6 @@ class EventsController extends Controller {
     }
 
     $events = $this->eventDAO->search($conditions);
-
-    $eventFound;
 
     foreach($events as $event) {
       if($event['id'] == $_GET['id']){
@@ -223,6 +242,24 @@ class EventsController extends Controller {
       header('Location: index.php');
       exit();
     }
+
+    $similarEvents;
+    $rememberFirstTag = "";
+        foreach($eventFound['tags'] as $tag):
+            $rememberFirstTag[].=$tag['tag'];
+        endforeach;
+            $rememberFirstTag = reset($rememberFirstTag);
+
+            if(!empty($rememberFirstTag)){
+            $conditionTag[] = array(
+            'field' => 'tag',
+            'comparator' => '=',
+            'value' => $rememberFirstTag
+            );
+
+            $similarEvents = $this->eventDAO->search($conditionTag);
+            $this->set('similarEvents', $similarEvents);
+              }
 
 
 
