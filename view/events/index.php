@@ -1,4 +1,4 @@
-<?php if (!isset($_POST['submit'])) {
+<?php if (!isset($_POST['btnSubmit'])) {
   session_unset();
   $_POST['category'] = "";
   $_POST['sort']= "start";
@@ -16,7 +16,7 @@
     <form class="filter-form" action="index.php?page=events" method="POST">
       <div class="filter-top">
         <div class="filter-top-container">
-          <div class="filter-items">
+          <div class="filter-items hide">
             <?php if(isset($_POST['startDate']) && isset($_POST['endDate'])): ?>
               <label class="filter-label" for="startDate">Ik zoek een voorstelling tussen</label>
               <input class="filter-date" type="date" name="startDate" value="<?php echo $_POST['startDate'] ?>">
@@ -31,21 +31,24 @@
               <span class="filter-label">.</span>
             <?php endif; ?>
             <div class="filter-error">
-              <?php if( isset($_POST['submit']) && (empty($_POST['startDate']) && empty($_POST['endDate']))):
-                    elseif(isset($_POST['submit']) && (empty($_POST['startDate']) || empty($_POST['endDate']))):?>
+              <?php if( isset($_POST['btnSubmit']) && (empty($_POST['startDate']) && empty($_POST['endDate']))):
+                    elseif(isset($_POST['btnSubmit']) && (empty($_POST['startDate']) || empty($_POST['endDate']))):?>
               <p><?php echo 'Gelieve een begin- en einddatum in te vullen.'; ?></p>
               <? endif; ?>
             </div> <!-- end filter-error -->
           </div> <!-- end filter-items -->
-          <div class="filter-search-container hide">
+          <div class="filter-button">
+            <p class="filter-link">Filter</p>
+          </div>
+          <div class="filter-search-container">
             <input class="filter-search-bar"type="text" id="search" name="query" placeholder="Zoek op artiest... bv. Tyka" value="<?php if(isset($_POST['query'])) echo $_POST['query'];?>"></br>
             <!-- <?php echo $_POST['query']?> -->
-            <a class="filter-search" href=""><img class="filter-search-img" src="assets/svg/search-icon.svg" alt="search-icon" width="40" height:"40"></span></a>
+            <input class="filter-search"type="submit" id="search" name="btnSubmit" value="">
           </div> <!-- end filter-search-container -->
         </div> <!-- end filter-top-container -->
       </div> <!-- end filter-top -->
 
-      <div class="filter-bottom">
+      <div class="filter-bottom hide">
         <div class="filter-bottom-item">
           <label class="filter-bottom-label"for="category">Categorie:</label>
           <select class="filter-category" name="category">
@@ -58,10 +61,9 @@
             <?php else: ?>
               <option value="<?php echo $tag['tag']; ?>"><?php echo $tag['tag']; ?></option>
             <?php endif;
-                  endforeach;
-                  ?>
+                  endforeach;?>
           </select>
-        </div>
+        </div> <!-- end filter-bottom-item-->
         <div class="filter-bottom-item">
           <span class="filter-bottom-label">Sorteer op:</span>
           <?php if(isset($_POST['sort']) && !empty($_POST['sort'])): ?>
@@ -86,34 +88,12 @@
         </div> <!-- end filter-bottom-item-->
 
         <div class="filter-bottom-item p-button">
-          <input class="filter-bottom-button" type="submit" name="submit" value="ZOEK"></input>
+          <input class="filter-bottom-button" type="submit" name="btnSubmit" value="FILTER ›"></input>
         </div> <!-- end filter-bottom-item-->
       </div><!-- end filter-bottom -->
     </form>
   </div> <!-- end-filter-container-->
 
-    <!-- <?php echo $_POST['sort'];
-          echo $_POST['hiddenSort'];
-          ?> -->
-
-      <?php if (isset($_POST['sort']) || !empty($_POST['sort'])):
-        // echo $_POST['sort'];
-      endif; ?>
-
-  <!-- <?php if (isset($_POST['category']) || !empty($_POST['category'])):
-          echo $_POST['category'];
-        endif; ?> -->
-
-  <!-- <?php if (isset($_POST['startDate']) || !empty($_POST['startDate'])):
-    echo $_POST['startDate'];
-    endif; ?>
-
-  <?php if (isset($_POST['endDate']) || !empty($_POST['endDate'])):
-      $_POST['endDate'] = $_POST['endDate'];
-      echo $_POST['endDate'];
-      endif; ?> -->
-
-  <?php //echo $_POST['sort']; echo $_POST['hiddenSort']; ?>
   </section>
 
   <section class="section results">
@@ -136,11 +116,10 @@
             </div>
             <div class="event-descr-top">
               <p class="event-date"><?php echo date("d-m-Y", strtotime($event['start'])); ?></p>
-              <p class="event-tag"><?php foreach($event['tags'] as $tag):
-
+              <p class="event-tag">
+                <?php foreach($event['tags'] as $tag):
                     echo $tag['tag'].' ';
-                  endforeach;
-                 ?>
+                  endforeach;?>
                </p>
             </div>
             <div class="event-descr-bottom">

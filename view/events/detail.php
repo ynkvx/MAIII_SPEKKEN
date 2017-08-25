@@ -65,6 +65,15 @@
             </p>
           </div>
         </div>
+        <div class="detail-descr-images">
+          <?php $textArr = $events['event_img'];
+                $imgArr[] = explode(',', $textArr);?>
+          <?php foreach($imgArr as $img ): ?>
+            <?php foreach($img as $eventImg): ?>
+              <img src="assets/img/events/<?php echo $eventImg; ?>.jpg" alt="image <?php echo $events['title']; ?>" width="150" height="150" />
+          <?php endforeach;?>
+          <?php endforeach;?>
+        </div>
         <div class="detail-descr-text">
             <p><?php echo $events['description'] ?></p>
             <a href="#" class="p-button"><span>Koop Tickets (10€)*</span></a>
